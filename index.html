@@ -27,7 +27,7 @@ fetch('./chat.txt')
 
       // Examine the text in the response
       response.json().then(function(data) {
-        console.log(data);
+        text = data;
       });
     }
   )
@@ -36,4 +36,6 @@ fetch('./chat.txt')
   });
   document.getElementById('main').innerHTML = text;
  }
-var read = setInterval(read, 3000);
+var read = setInterval(read, 10000);
+  </script>
+</html>
