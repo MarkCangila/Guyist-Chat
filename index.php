@@ -5,14 +5,14 @@
 </head>
 <body>
 <p tag='main'></p>
-<form action="welcome.php" method="get" id="spaceing" data-abide>
+<form action="" method="get" id="spaceing" data-abide>
 name: <input type="text" name="Username"><br>
 message: <input type="text" name="Message"><br>
 <input type="submit">
 </form>
 
 </body>
-<script>
+<script type='application/javascript'>
 var text;
 function read()
 {
@@ -38,4 +38,5 @@ fetch('./chat.txt')
  }
 var read = setInterval(read, 10000);
   </script>
+   <?php file_put_contents ( "./text.txt", "<?php echo $_GET["name"]; ?>: <?php echo $_GET["email"]; ?>", FILE_APPEND)?>                             
 </html>
