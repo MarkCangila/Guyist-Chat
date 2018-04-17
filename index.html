@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<p tag='main'></p>
+<form action="welcome.php" method="post">
+Name: <input type="text" name="Username"><br>
+Message: <input type="text" name="Message"><br>
+<input type="submit">
+</form>
+
+</body>
+<script>
+var text;
+function read()
+{
+fetch('./chat.txt')
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+
+      // Examine the text in the response
+      response.json().then(function(data) {
+        console.log(data);
+      });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
+  document.getElementById('main').innerHTML = text;
+ }
+var read = setInterval(read, 3000);
